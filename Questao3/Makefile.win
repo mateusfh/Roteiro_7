@@ -1,0 +1,43 @@
+# Project: Projeto1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Hospital.o Medico.o Cirurgiao.o Oftamologista.o Ginecologista.o Otorrino.o
+LINKOBJ  = Hospital.o Medico.o Cirurgiao.o Oftamologista.o Ginecologista.o Otorrino.o
+LIBS     = -L"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+INCS     = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files/Dev-Cpp/MinGW64/include" -I"C:/Program Files/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Projeto1.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Hospital.o: Hospital.cpp
+	$(CPP) -c Hospital.cpp -o Hospital.o $(CXXFLAGS)
+
+Medico.o: Medico.cpp
+	$(CPP) -c Medico.cpp -o Medico.o $(CXXFLAGS)
+
+Cirurgiao.o: Cirurgiao.cpp
+	$(CPP) -c Cirurgiao.cpp -o Cirurgiao.o $(CXXFLAGS)
+
+Oftamologista.o: Oftamologista.cpp
+	$(CPP) -c Oftamologista.cpp -o Oftamologista.o $(CXXFLAGS)
+
+Ginecologista.o: Ginecologista.cpp
+	$(CPP) -c Ginecologista.cpp -o Ginecologista.o $(CXXFLAGS)
+
+Otorrino.o: Otorrino.cpp
+	$(CPP) -c Otorrino.cpp -o Otorrino.o $(CXXFLAGS)
